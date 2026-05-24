@@ -13,14 +13,14 @@ import java.sql.ResultSet;
  * @author tonit
  */
 public class Login_DAO {
-    public boolean Validacion(LoginModel login){
+    public boolean Validacion(Login_Model login){
         boolean acceso = false;
         
         try{
             Conexion conexion = new Conexion();
             Connection conn = conexion.getConnection();
             
-            String sql = "SELECT * FROM usuario WHERE usuario = ? AND password = ?";
+            String sql = "SELECT * FROM usuario WHERE username = ? AND password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, login.getUsuario());
             ps.setString(2, login.getPassword());

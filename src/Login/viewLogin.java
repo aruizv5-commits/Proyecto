@@ -8,7 +8,9 @@ package Login;
  *
  * @author tonit
  */
+
 public class viewLogin extends javax.swing.JFrame {
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(viewLogin.class.getName());
 
@@ -45,6 +47,7 @@ public class viewLogin extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA");
 
         loginbtn.setText("ENTRAR");
+        loginbtn.addActionListener(this::loginbtnActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,6 +85,24 @@ public class viewLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
+        // TODO add your handling code here:
+        String user = User_txt.getText();
+        String password = new String(Password_txt.getPassword());
+        
+        Login_Model login = new Login_Model(user, password);
+        
+        Login_Controler controlador = new Login_Controler();
+        controlador.iniciarSesion(login, this);
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_loginbtnActionPerformed
 
     /**
      * @param args the command line arguments
